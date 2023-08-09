@@ -17,17 +17,22 @@ module.exports = {
         use: 'ts-loader',
       },
       {
-        test: /\.(.*)$/,
-        use: [
-          {
-            loader: 'raw-loader',
-            options: {
-              name: '[name].[ext]',
-            },
-          },
-        ],
-        include: path.resolve(__dirname, './database'), 
-      }
+        test: /\.txt/,
+        type: 'asset/source',
+      },
+
+      // {
+      //   test: /\.(.*)$/,
+      //   use: [
+      //     {
+      //       loader: 'raw-loader',
+      //       options: {
+      //         name: '[name].[ext]',
+      //       },
+      //     },
+      //   ],
+      //   include: path.resolve(__dirname, './database'), 
+      // }
     ],
   }
 };
