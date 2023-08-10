@@ -5,6 +5,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -30,5 +31,13 @@ module.exports = {
         type: 'asset/source',
       },
     ],
-  }
+  },
+  devServer: {
+    port: 3000,
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    compress: true,
+    historyApiFallback: true,
+  },
 };
