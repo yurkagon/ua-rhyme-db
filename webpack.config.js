@@ -12,27 +12,23 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.(ts|tsx|js)$/,
         exclude: /node_modules/,
         use: 'ts-loader',
       },
       {
-        test: /\.txt/,
+        test: /\.s[ac]ss$/i,
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
+      },
+      {
+        test: /\.*/,
+        include: path.resolve(__dirname, 'database'),
         type: 'asset/source',
       },
-
-      // {
-      //   test: /\.(.*)$/,
-      //   use: [
-      //     {
-      //       loader: 'raw-loader',
-      //       options: {
-      //         name: '[name].[ext]',
-      //       },
-      //     },
-      //   ],
-      //   include: path.resolve(__dirname, './database'), 
-      // }
     ],
   }
 };

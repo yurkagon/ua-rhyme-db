@@ -1,13 +1,18 @@
-const allFiles = ((ctx) => {
-  let keys = ctx.keys();
-  let values = keys.map(ctx);
-  return keys.reduce((o, k, i) => {
-    o[k] = values[i];
-    return o;
-  }, {});
-  // @ts-ignore
-})(require.context("../../database/", true, /.*/));
+import _ from 'lodash';
 
-console.log(allFiles);
+import rawFileData from './rawFileData';
 
-export default allFiles;
+
+const data = _.chain(rawFileData).map((value: string, key: string) => {
+  const rhymesRaw = [key, ...value.split('\n')];
+
+  const rhymes = rhymesRaw.map((rhyme: string) => ({ value: rhyme }));
+
+  return { key, rhymes }
+}).value();
+
+
+console.log(data)
+
+
+export default rawFileData;
