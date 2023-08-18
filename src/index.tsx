@@ -2,9 +2,11 @@ import { createRoot } from 'react-dom/client';
 
 import  a from './store';
 
+
+
 import './style.scss';
 
-
+console.log(a)
 
 
 const App = () => {
