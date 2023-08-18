@@ -6,6 +6,9 @@ import  a from './store';
 
 import './style.scss';
 
+
+import A from './assets/1.png';
+
 console.log(a)
 
 
@@ -54,7 +57,7 @@ const App = () => {
           <div className="hero-img">
             <img
               className="img-fluid img-device"
-              src="https://images2.imgbox.com/0f/ef/Ko802hfE_o.png"
+              src={A}
               alt="device-image"
             />
           </div>

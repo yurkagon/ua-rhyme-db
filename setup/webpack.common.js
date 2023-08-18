@@ -28,6 +28,10 @@ module.exports = {
         include: path.resolve(__dirname, "../database"),
         type: "asset/source",
       },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        type: 'asset/resource'
+      }
     ],
   }
 };
