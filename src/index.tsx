@@ -38,7 +38,7 @@ const App = () => {
             </li>
             <li>
               <a className="nav-link" href="#contact">
-                Contact
+                KEK
               </a>
             </li>
           </ul>
