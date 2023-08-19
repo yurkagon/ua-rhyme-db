@@ -7,11 +7,6 @@ const common = require("./webpack.common.js");
 
 module.exports = merge(common, {
   mode: "development",
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "public/index.html",
-    }),
-  ],
   devServer: {
     port: 3000,
     static: {

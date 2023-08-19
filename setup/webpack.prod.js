@@ -9,12 +9,6 @@ module.exports = merge(common, {
   mode: "production",
   output: {
     filename: "[contenthash].main.js",
-    publicPath: "/",
+    publicPath: require("../package.json").homepage,
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "public/index.html",
-      publicPath: require("../package.json").homepage,
-    }),
-  ],
 });

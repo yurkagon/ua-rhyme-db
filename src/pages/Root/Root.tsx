@@ -1,14 +1,9 @@
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-
 import A from "../../assets/4.png";
 
 const RootPage = () => {
   return (
     <>
       <section className="masthead">
-        <Header />
-
         <div className="content">
           <div className="container flex content-container">
             <div className="left-column">
@@ -202,8 +197,6 @@ const RootPage = () => {
           </form>
         </div>
       </section>
-
-      <Footer />
     </>
   );
 };

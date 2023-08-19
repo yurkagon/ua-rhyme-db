@@ -12,6 +12,15 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "public/index.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: "public/index.html",
+      filename: "404.html",
+    }),
+  ],
   module: {
     rules: [
       {
