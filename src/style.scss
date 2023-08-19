@@ -3,7 +3,7 @@
 :root {
 	--color-white: #F3F3F3;
 	--color-black: #101010;
-	--color-primary: #3E77E8;
+	--color-primary: #077BAD;
 }
 
 *,
@@ -70,13 +70,7 @@ p {
 
 /* Page */
 
-.masthead {
-	background-color: var(--color-primary);
-	padding-bottom: 8rem;
-	margin-bottom: 2rem;
-	position: relative;
-	color: var(--color-white);
-}
+
 
 .header {
 	padding-top: 2rem;
@@ -121,6 +115,14 @@ p {
 	margin: 0;
 }
 
+.masthead {
+	background-color: var(--color-primary);
+	padding-bottom: 8rem;
+	margin-bottom: 2rem;
+	position: relative;
+	color: var(--color-white);
+}
+
 .masthead::after {
 	content: '';
 	display: block;
@@ -131,10 +133,6 @@ p {
 	background-repeat: no-repeat;
 	position: absolute;
 	bottom: 0;
-}
-
-.masthead .content {
-	margin-top: 3rem;
 }
 
 @media (max-width: 640px) {
