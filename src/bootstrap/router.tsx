@@ -16,6 +16,15 @@ const router = createBrowserRouter(
           path: "/",
           element: <RootPage />,
         },
+        {
+          path: "/search",
+          element: <h1>Search</h1>,
+        },
+
+        {
+          path: "*",
+          lazy: () => import("../pages/NotFound")
+        }
       ],
     },
   ],

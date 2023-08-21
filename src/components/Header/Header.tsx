@@ -1,51 +1,35 @@
-import A from "../../assets/5.png";
+import A from "../../assets/3.png";
 
 import "./style.scss";
 
 const Header = () => (
-  <header className="header">
-    <div className="container flex header-menu">
-      <nav>
-        <ul>
-          <li className="d-flex align-items-center">
-            <span id="header-img">
-              <img
-                className=""
-                src={A}
-                width={60}
-                height={60}
-                alt="device-image"
-              />
-              <span>U</span>
-              <span>A</span> RhymeDB
-            </span>
-          </li>
-          <li className="d-flex align-items-center">
-            <a className="nav-link" href="#">
-              Home
-            </a>
-          </li>
-          <li className="d-flex align-items-center">
-            <a className="nav-link" href="#about">
-              About
-            </a>
-          </li>
-          <li className="d-flex align-items-center">
-            <a className="nav-link" href="#video">
-              Showcase
-            </a>
-          </li>
-          <li className="d-flex align-items-center">
-            <a className="nav-link" href="#contact">
-              KEK
-            </a>
-          </li>
-        </ul>
-      </nav>
-      {/* <a className="header-cta" href="#">
-        Try For Free
-      </a> */}
+  <header className="header d-flex justify-content-between align-items-center p-3 px-md-4 border-bottom shadow-md">
+    <div className="logo d-flex align-items-center">
+      <img
+        src={A}
+        alt="logo"
+        className="logo mr-3"
+      />
+      <h5 className="text my-0 mr-md-auto font-weight-bold">UA RhymeDB</h5>
     </div>
+
+    <nav className="my-2 my-md-0 mr-md-3">
+      <a className="p-2 text-dark" href="#">
+        Виконавці
+      </a>
+      <a className="p-2 text-dark" href="#">
+        Пісні
+      </a>
+      <a className="p-2 text-dark" href="#">
+        Рими
+      </a>
+      <a className="p-2 text-dark" href="#">
+        Pricing
+      </a>
+    </nav>
+    <a className="btn btn-outline-primary" href="#">
+      Sign up
+    </a>
   </header>
 );
 
