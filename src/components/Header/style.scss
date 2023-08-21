@@ -1,18 +1,37 @@
-
 .header {
-  background-color: var(--color-primary);
   width: 100%;
   background-color: #fff;
 
+  text-decoration: none;
+
+  user-select: none;
+
+  a {
+    color: var(--color-primary);
+
+    &:hover {
+      color: darken(#077bad, 10%);
+    }
+  }
+
   .logo {
+    margin-right: 5%;
+
     img {
       $size: 50px;
       width: $size;
       height: $size;
+
+      margin-right: 10px;
     }
 
     .text {
       font-weight: bold;
     }
+  }
+
+
+  .nav-button {
+    margin-right: 20px;
   }
 }

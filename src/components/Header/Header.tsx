@@ -1,35 +1,31 @@
-import A from "../../assets/3.png";
+import { Link } from "react-router-dom";
+
+import header_logo from "../../assets/header_logo.png";
 
 import "./style.scss";
 
 const Header = () => (
-  <header className="header d-flex justify-content-between align-items-center p-3 px-md-4 border-bottom shadow-md">
-    <div className="logo d-flex align-items-center">
+  <header className="header d-flex flex-start flex-md-row flex-column align-items-center p-3 px-md-4 border-bottom shadow-md">
+    <Link to="/" className="logo d-flex align-items-center">
       <img
-        src={A}
+        src={header_logo}
         alt="logo"
-        className="logo mr-3"
+        className="logo"
       />
       <h5 className="text my-0 mr-md-auto font-weight-bold">UA RhymeDB</h5>
-    </div>
+    </Link>
 
-    <nav className="my-2 my-md-0 mr-md-3">
-      <a className="p-2 text-dark" href="#">
+    <nav className="navigation my-2 my-md-0 mr-md-3">
+      <Link to="/artists" className="nav-button p-2">
         Виконавці
-      </a>
-      <a className="p-2 text-dark" href="#">
+      </Link>
+      <Link to="/songs" className="nav-button p-2" >
         Пісні
-      </a>
-      <a className="p-2 text-dark" href="#">
+      </Link>
+      <Link to="/rhymes" className="nav-button p-2">
         Рими
-      </a>
-      <a className="p-2 text-dark" href="#">
-        Pricing
-      </a>
+      </Link>
     </nav>
-    <a className="btn btn-outline-primary" href="#">
-      Sign up
-    </a>
   </header>
 );
 

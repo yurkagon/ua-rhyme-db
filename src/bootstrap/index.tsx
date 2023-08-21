@@ -1,10 +1,10 @@
 import { RouterProvider } from "react-router-dom";
 
-import a from "../store";
-
 import router from "./router";
 
-import "../style.scss";
+// TODO: wait for fix
+// import "bootstrap/dist/css/bootstrap.min.css";
+import "../style/index.scss";
 
 const App = () => {
   return <RouterProvider router={router} />;
