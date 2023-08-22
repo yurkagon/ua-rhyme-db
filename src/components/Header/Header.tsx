@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
-import header_logo from "../../assets/header_logo.png";
+// @ts-ignore
+import header_logo from "../../assets/header_logo.png?width=100&height=100";
 
 import "./style.scss";
 

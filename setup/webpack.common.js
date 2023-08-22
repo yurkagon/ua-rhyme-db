@@ -42,9 +42,22 @@ module.exports = {
         type: "asset/source",
       },
       {
-        test: /\.(png|jpg|gif)$/i,
-        type: 'asset/resource'
-      }
+        // convert all imported images to have max width 1000px
+        test: /\.(png|jpe?g|webp|tiff?)$/i,
+        use: [
+          "file-loader",
+          {
+            loader: "webpack-image-resize-loader",
+            options: {
+              width: 1000,
+            },
+          },
+        ],
+      },
+      // {
+      //   test: /\.(png|jpg|gif)$/i,
+      //   type: ''
+      // }
     ],
   }
 };
