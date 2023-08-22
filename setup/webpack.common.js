@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const favicon_path = "src/assets/header_logo.png";
+const favicon_path = "src/assets/favicon.png";
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -42,7 +42,6 @@ module.exports = {
         type: "asset/source",
       },
       {
-        // convert all imported images to have max width 1000px
         test: /\.(png|jpe?g|webp|tiff?)$/i,
         use: [
           "file-loader",
@@ -53,11 +52,7 @@ module.exports = {
             },
           },
         ],
-      },
-      // {
-      //   test: /\.(png|jpg|gif)$/i,
-      //   type: ''
-      // }
+      }
     ],
   }
 };
