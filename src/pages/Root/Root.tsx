@@ -29,9 +29,7 @@ const RootPage = () => {
                       className="form-control"
                       placeholder="Enter your email address"
                     />
-                    <button type="submit" id="submit" className="submit-button">
-                      Знайти
-                    </button>
+                    <button type="button" className="btn btn-outline-warning">Знайти</button>
                   </div>
                 </form>
               </div>
@@ -40,9 +38,8 @@ const RootPage = () => {
         </div>
       </section>
 
-      <section id="about" className="about">
-        <div className="container">
-          <div className="text-center description">
+      <section className="about">
+      <div className="text-center description">
             <h2 id="subtitle">Ласкаво просимо до UA RhymeDB</h2>
             <p>
               Відкрийте для себе красу українських рим через пісні та реп.
@@ -50,7 +47,6 @@ const RootPage = () => {
               жанрах.
             </p>
           </div>
-        </div>
       </section>
     </>
   );
