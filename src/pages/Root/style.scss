@@ -53,6 +53,19 @@
       margin-bottom: 2rem;
     }
   }
+
+  .search-button {
+    color: var(--color-secondary);
+    border-color: var(--color-secondary);
+
+    outline: none !important;
+
+    &:hover {
+      color: white;
+      background-color: rgba(#FFE801, 0.5);
+      outline: none;
+    }
+  }
 }
 
 .description {

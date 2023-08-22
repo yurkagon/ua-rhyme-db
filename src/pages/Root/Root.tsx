@@ -1,4 +1,9 @@
+
+
 import main_page_logo from "../../assets/main_page_logo.png";
+
+
+import SearchForm from "./SearchForm";
 
 import "./style.scss";
 
@@ -19,19 +24,9 @@ const RootPage = () => {
             </div>
             <div className="right-column">
               <div className="hero-content">
-                <h1 id="title">База даних римування українських виконавців</h1>
-                <form id="form" className="form text-center">
-                  <div className="input-group">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      className="form-control"
-                      placeholder="Enter your email address"
-                    />
-                    <button type="button" className="btn btn-outline-warning">Знайти</button>
-                  </div>
-                </form>
+                <h1 className="mb-3">База даних римування українських виконавців</h1>
+
+                <SearchForm />
               </div>
             </div>
           </div>
