@@ -1,9 +1,14 @@
-const Footer = () => (
+const Footer = () => {
+  const date = new Date();
+  const currentYear = date.getFullYear();
+
+  return (
     <footer id="footer">
-    <div className="container text-center">
-      <p>Copyright © 2022 Relax</p>
-    </div>
-  </footer>
-);
+      <div className="container text-center">
+        <p>Copyright © {currentYear} Yuragon</p>
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;
