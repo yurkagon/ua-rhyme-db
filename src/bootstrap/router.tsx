@@ -17,8 +17,8 @@ const router = createBrowserRouter(
           element: <RootPage />,
         },
         {
-          path: "/search/:string",
-          element: <h1>Search</h1>,
+          path: "/search/:phrase",
+          lazy: () => import("../pages/Search")
         },
         {
           path: "/artists",

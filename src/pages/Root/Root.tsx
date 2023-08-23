@@ -9,7 +9,7 @@ import "./style.scss";
 
 const RootPage = () => {
   return (
-    <>
+    <main>
       <section className="masthead">
         <div className="content">
           <div className="container d-flex content-container">
@@ -43,7 +43,7 @@ const RootPage = () => {
             </p>
           </div>
       </section>
-    </>
+    </main>
   );
 };
 
