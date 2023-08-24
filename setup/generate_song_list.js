@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs-extra");
 
 const songFolderPath = "../database/lazy/songs";
-const destinationFolderPath = "../database/bundled/song_list.txt";
+const destinationFolderPath = "../database/bundled/song_list";
 
 const files = fs.readdirSync(path.resolve(__dirname, songFolderPath));
 const sortedFiles = files.sort();

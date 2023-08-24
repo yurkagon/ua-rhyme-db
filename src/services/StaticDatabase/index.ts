@@ -1,2 +1,2 @@
 export { default } from "./StaticDatabase";
-export * from "./StaticDatabase";
+export * from "./types";

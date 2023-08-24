@@ -44,6 +44,11 @@ module.exports = {
         type: "asset/source",
       },
       {
+        test: /\.*/,
+        include: path.resolve(__dirname, "../database/lazy"),
+        type: "asset/resource",
+      },
+      {
         test: /\.(png|jpe?g|webp|tiff?)$/i,
         use: [
           "file-loader",

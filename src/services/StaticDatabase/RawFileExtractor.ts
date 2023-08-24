@@ -24,6 +24,12 @@ class RawFileExtractor {
 
     return this.formatFolderData(importDataFunction);
   }
+
+  public static loadSongList() {
+    const songListRaw = require("../../../database/bundled/song_list");
+
+    return songListRaw.split("\n");
+  }
 }
 
 export default RawFileExtractor;
