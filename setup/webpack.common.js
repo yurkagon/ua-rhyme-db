@@ -3,11 +3,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const favicon_path = "src/assets/favicon.png";
 
+require("./generate_song_list");
+
 module.exports = {
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "../build"),
-    filename: "main.bundle.js",
+    filename: "bundle.js",
     publicPath: "/",
     clean: true,
   },
@@ -17,12 +19,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "public/index.html",
-      favicon: favicon_path
+      favicon: favicon_path,
     }),
     new HtmlWebpackPlugin({
       template: "public/index.html",
       filename: "404.html",
-      favicon: favicon_path
+      favicon: favicon_path,
     }),
   ],
   module: {
@@ -52,7 +54,7 @@ module.exports = {
             },
           },
         ],
-      }
+      },
     ],
-  }
+  },
 };
