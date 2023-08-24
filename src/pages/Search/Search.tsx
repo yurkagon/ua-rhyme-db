@@ -13,13 +13,13 @@ export function Component() {
 
   return (
     <main className="p-3">
-      <h1>{phrase}</h1>
+
 
       <SearchForm />
 
 
       <div>
-        <h2>Results</h2>
+        <h2>Можна римувати з:</h2>
         <ul>
           {rhymes.map((rhyme) => (
             <li key={rhyme.value}>{rhyme.label}</li>

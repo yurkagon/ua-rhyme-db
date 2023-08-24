@@ -1,9 +1,11 @@
+import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
+import clsx from "clsx";
 
 import "./style.scss";
 
-const SearchForm = () => {
+const SearchForm: FC<Props> = ({ className }) => {
   const { phrase } = useParams();
   const { register, handleSubmit } = useForm<FormValues>();
   const navigate = useNavigate();
@@ -15,10 +17,17 @@ const SearchForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="search-form form text-center">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className={clsx(className, "search-form form text-center")}
+    >
       <div className="input-group">
         <input
-          {...register("search", { required: true, value: phrase  })}
+          {...register("search", {
+            required: true,
+            value: phrase,
+            minLength: 2,
+          })}
           className="form-control"
           placeholder="Ножиці"
         />
@@ -30,6 +39,10 @@ const SearchForm = () => {
     </form>
   );
 };
+
+interface Props {
+  className?: string;
+}
 
 type FormValues = {
   search: string;
