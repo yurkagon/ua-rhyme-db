@@ -8,9 +8,11 @@ class Application {
   public static findRhymes(phrase: string): Rhyme[] {
     const correctedPhrase = formatWord(phrase);
 
-    const result = this.find(correctedPhrase).filter(
+    const rhymes = this.find(correctedPhrase);
+
+    const result = _.chain(rhymes).filter(
       (rhyme) => rhyme.value !== correctedPhrase
-    );
+    ).uniqBy("value").value();
 
     return result;
   }
@@ -35,13 +37,13 @@ class Application {
     const allSelectedRhymes = [...inputRhymes, ...selectedRhymes];
 
     const isMultiWord = phrase.includes(" ");
-    if (isMultiWord) {
+    if (false) {
       const newPhrase = this.removeFirstWord(phrase);
 
       return this.find(newPhrase, allSelectedRhymes);
     }
     {
-      return _.uniqBy(allSelectedRhymes, "value");
+      return allSelectedRhymes
     }
   }
 

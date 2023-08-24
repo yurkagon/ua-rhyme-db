@@ -1,9 +1,6 @@
-
-
 import main_page_logo from "../../assets/main_page_logo.png";
 
-
-import SearchForm from "./SearchForm";
+import SearchForm from "../../components/SearchForm";
 
 import "./style.scss";
 
@@ -24,7 +21,9 @@ const RootPage = () => {
             </div>
             <div className="right-column">
               <div className="hero-content">
-                <h1 className="mb-3">База даних римування українських виконавців</h1>
+                <h1 className="mb-3">
+                  База даних римування українських виконавців
+                </h1>
 
                 <SearchForm />
               </div>
@@ -34,14 +33,14 @@ const RootPage = () => {
       </section>
 
       <section className="about">
-      <div className="text-center description">
-            <h2 id="subtitle">Ласкаво просимо до UA RhymeDB</h2>
-            <p>
-              Відкрийте для себе красу українських рим через пісні та реп.
-              Досліджуйте колекцію рим, які використовуються у різних музичних
-              жанрах.
-            </p>
-          </div>
+        <div className="text-center description">
+          <h2 id="subtitle">Ласкаво просимо до UA RhymeDB</h2>
+          <p>
+            Відкрийте для себе красу українських рим через пісні та реп.
+            Досліджуйте колекцію рим, які використовуються у різних музичних
+            жанрах.
+          </p>
+        </div>
       </section>
     </main>
   );

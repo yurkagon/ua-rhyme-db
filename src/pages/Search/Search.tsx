@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 
-import SearchForm from "./SearchForm";
+import SearchForm from "../../components/SearchForm";
 
 import Application from "../../App";
 
