@@ -17,7 +17,7 @@ class RawFileExtractor {
   public static loadRhymeFolder(): { [key: string]: string } {
     // @ts-ignore
     const importDataFunction = require.context(
-      "../../../database/rhymes",
+      "../../../database/bundled/rhymes",
       true,
       /.*/
     );

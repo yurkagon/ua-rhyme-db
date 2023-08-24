@@ -38,7 +38,7 @@ module.exports = {
       },
       {
         test: /\.*/,
-        include: path.resolve(__dirname, "../database"),
+        include: path.resolve(__dirname, "../database/bundled"),
         type: "asset/source",
       },
       {

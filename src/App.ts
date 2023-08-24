@@ -5,16 +5,22 @@ import { formatWord } from "./utils";
 import StaticDatabase, { Rhyme } from "./services/StaticDatabase";
 
 class Application {
-  public static findRhymes(phrase: string): Rhyme[] {
+  public static findRhymes(phrase: string) {
     const correctedPhrase = formatWord(phrase);
 
     const rhymes = this.find(correctedPhrase);
 
-    const result = _.chain(rhymes).filter(
-      (rhyme) => rhyme.value !== correctedPhrase
-    ).uniqBy("value").value();
+    const grouped = _.groupBy(rhymes, (value) => {
+      if (value.value === correctedPhrase) {
+        return "target";
+      }
 
-    return result;
+      return "rhymes";
+    }) as { target: Rhyme[]; rhymes: Rhyme[] };
+
+    grouped.rhymes = _.uniqBy(grouped.rhymes, "value");
+
+    return grouped;
   }
 
   private static find(phrase: string, inputRhymes: Rhyme[] = []): Rhyme[] {
@@ -22,13 +28,7 @@ class Application {
 
     const selectedRhymes = _.chain(rhymeData)
       .filter((rhymeBlock) =>
-        rhymeBlock.rhymes.some((rhyme) => {
-          return (
-            rhyme.value === phrase
-            // phrase.endsWith(rhyme.value) ||
-            // rhyme.value.endsWith(phrase)
-          );
-        })
+        rhymeBlock.rhymes.some((rhyme) => this.compareRhymes(rhyme, phrase))
       )
       .map("rhymes")
       .flatten()
@@ -37,14 +37,20 @@ class Application {
     const allSelectedRhymes = [...inputRhymes, ...selectedRhymes];
 
     const isMultiWord = phrase.includes(" ");
-    if (false) {
+    if (isMultiWord) {
       const newPhrase = this.removeFirstWord(phrase);
 
       return this.find(newPhrase, allSelectedRhymes);
+    } else {
+      return allSelectedRhymes;
     }
-    {
-      return allSelectedRhymes
-    }
+  }
+
+  private static compareRhymes(rhyme: Rhyme, phrase: string): boolean {
+    if (rhyme.value === phrase) return true;
+    if (rhyme.alternatives.includes(phrase)) return true;
+
+    return false;
   }
 
   private static removeFirstWord(phrase: string): string {

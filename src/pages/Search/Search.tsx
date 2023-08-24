@@ -8,7 +8,7 @@ import Application from "../../App";
 export function Component() {
   const { phrase } = useParams();
 
-  const rhymes = useMemo(() => Application.findRhymes(phrase), [phrase]);
+  const { target, rhymes} = useMemo(() => Application.findRhymes(phrase), [phrase]);
 
 
   return (
