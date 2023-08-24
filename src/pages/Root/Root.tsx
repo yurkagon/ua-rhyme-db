@@ -4,7 +4,7 @@ import SearchForm from "../../components/SearchForm";
 
 import "./style.scss";
 
-const RootPage = () => {
+export const Component = () => {
   return (
     <main>
       <section className="masthead">
@@ -45,5 +45,3 @@ const RootPage = () => {
     </main>
   );
 };
-
-export default RootPage;

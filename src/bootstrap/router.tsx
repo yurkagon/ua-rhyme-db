@@ -2,8 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 
 import Layout from "../components/Layout";
 
-import RootPage from "../pages/Root";
-
 import { basename } from "../constants";
 
 const router = createBrowserRouter(
@@ -14,7 +12,7 @@ const router = createBrowserRouter(
       children: [
         {
           path: "/",
-          element: <RootPage />,
+          lazy: () => import("../pages/Root")
         },
         {
           path: "/search/:phrase",
