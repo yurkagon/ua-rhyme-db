@@ -8,3 +8,11 @@ export interface Rhyme {
   value: string;
   alternatives?: string[];
 }
+
+export interface Song {
+  id: string;
+  authorId: string;
+  author: string;
+  name: string;
+  url: string;
+}

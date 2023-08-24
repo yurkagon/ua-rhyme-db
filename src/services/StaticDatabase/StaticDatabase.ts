@@ -4,11 +4,11 @@ import { formatWord } from "../../utils";
 
 import RawFileExtractor from "./RawFileExtractor";
 
-import { Rhyme, RhymeBlock } from "./types";
+import { Rhyme, RhymeBlock, Song } from "./types";
 
 class StaticDatabase {
   private static rhymeData: RhymeBlock[];
-  private static songList;
+  private static songList: Song[];
 
   public static load() {
     this.loadRhymeData();
@@ -18,19 +18,16 @@ class StaticDatabase {
   public static loadSongList() {
     this.songList = RawFileExtractor.loadSongList().map((song: string) => {
       const [id, authorId, author, name] = song.split("_");
+      const url = require(`../../../database/lazy/songs/${song}`);
 
       return {
-        id, authorId, author, name, data_file_name: song
+        id,
+        authorId,
+        author,
+        name,
+        url,
       };
-    }
-    );
-
-    console.log(this.songList.map(async ({data_file_name}) => {
-      const a = require(`../../../database/lazy/songs/${data_file_name}`);
-      const response = await fetch(a)
-      console.log(await response.text())
-      return a;
-    }))
+    });
   }
 
   private static loadRhymeData() {
@@ -55,12 +52,15 @@ class StaticDatabase {
     return {
       label: word.trim(),
       value: formatWord(word),
-      alternatives: alternatives.map(el => formatWord(el)),
+      alternatives: alternatives.map((el) => formatWord(el)),
     };
   }
 
   public static getRhymeData() {
     return this.rhymeData;
+  }
+  public static getSongList() {
+    return this.songList;
   }
 }
 
