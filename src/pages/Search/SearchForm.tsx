@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const SearchForm = () => {
+  const { phrase } = useParams();
   const { register, handleSubmit } = useForm<FormValues>();
   const navigate = useNavigate();
 
@@ -15,7 +16,7 @@ const SearchForm = () => {
     <form onSubmit={handleSubmit(onSubmit)} className="form text-center">
       <div className="input-group">
         <input
-          {...register("search", { required: true })}
+          {...register("search", { required: true, value: phrase  })}
           className="form-control"
           placeholder="Ножиці"
         />
