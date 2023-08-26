@@ -1,12 +1,23 @@
 .search-page {
+  display: flex;
+  justify-content: space-between;
   padding-top: 30px;
 
+  padding: 2rem;
+
+  .left {
+    flex: 6;
+  }
+  .right {
+    flex: 4;
+  }
 
   .form-wrapper {
     max-width: 50%;
     margin-bottom: 40px;
 
     .search-page-form {
+      width: 300px;
       input {
         border-color: var(--color-primary);
 
@@ -27,19 +38,15 @@
     }
   }
 
-
   .mention-card {
-    // max-width: 18rem;
-    margin-right: 3rem;
-    margin-bottom: 3rem;
-
-    align-self: flex-end;
-
+    min-width: 430px;
     color: var(--color-primary);
     border-color: var(--color-primary);
 
+    .card-text {
+      font-size: 14px;
+    }
   }
-
 
   .rhymes {
     display: flex;
@@ -55,7 +62,6 @@
       color: var(--color-primary);
       border-color: var(--color-primary);
 
-
       &:focus {
         box-shadow: none;
       }
@@ -66,5 +72,4 @@
       }
     }
   }
-
 }

@@ -14,6 +14,9 @@ class Application {
       if (value.value === correctedPhrase) {
         return "target";
       }
+      if (value.alternatives.includes(correctedPhrase)) {
+        return "target";
+      }
 
       return "rhymes";
     }) as { target: Rhyme[]; rhymes: Rhyme[] };

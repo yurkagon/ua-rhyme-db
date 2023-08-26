@@ -18,7 +18,7 @@ const MentionCard: FC<{
     });
   }, [data]);
 
-  const isLoaded = Boolean(song.data);
+  const isLoaded = Boolean(song?.data);
 
   const textData = useMemo(() => {
     if (!isLoaded) {

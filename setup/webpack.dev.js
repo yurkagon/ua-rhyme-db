@@ -15,4 +15,5 @@ module.exports = merge(common, {
     compress: true,
     historyApiFallback: true,
   },
+  devtool: 'inline-source-map'
 });
