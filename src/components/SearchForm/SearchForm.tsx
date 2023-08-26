@@ -19,7 +19,7 @@ const SearchForm: FC<Props> = ({ className }) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className={clsx(className, "search-form form text-center")}
+      className={clsx("search-form form text-center", className)}
     >
       <div className="input-group">
         <input

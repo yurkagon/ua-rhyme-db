@@ -23,6 +23,18 @@ export interface Song {
   author: string;
   name: string;
   url: string;
+  data?: SongData;
+}
+
+export interface SongData {
+  text: string;
+  info: {
+    id: string;
+    author_id: string;
+    author: string;
+    name: string;
+    youtube?: string;
+  };
 }
 
 export enum RhymeInfoType {

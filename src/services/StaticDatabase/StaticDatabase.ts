@@ -15,6 +15,23 @@ class StaticDatabase {
     this.loadSongList();
   }
 
+
+  public static getSong(songId: string) {
+    const song = _.find(this.songList, { id: songId });
+
+    return song;
+  }
+
+  public static async loadFullSongData(songId: string) {
+    const song = this.getSong(songId);
+    if (song.data) return song;
+
+    const result = await RawFileExtractor.loadSongByUrl(song.url);
+    song.data = result;
+
+    return song;
+  }
+
   public static loadSongList() {
     this.songList = RawFileExtractor.loadSongList().map((song: string) => {
       const [id, authorId, author, name] = song.split("_");

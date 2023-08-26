@@ -1,0 +1,46 @@
+.search-page {
+  display: flex;
+  flex-wrap: wrap;
+
+  .form-wrapper {
+    margin-right: 3rem;
+    margin-bottom: 3rem;
+
+    .search-page-form {
+      input {
+        border-color: var(--color-primary);
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .search-button {
+        color: var(--color-primary);
+        border-color: var(--color-primary);
+
+        &:hover {
+          color: white;
+          background-color: rgba(#077bad, 0.8);
+        }
+      }
+    }
+  }
+
+
+  .mention-card {
+    // max-width: 18rem;
+    margin-right: 3rem;
+    margin-bottom: 3rem;
+
+    align-self: flex-end;
+
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+
+  }
+
+  .rhyme-element {
+
+  }
+}

@@ -1,3 +1,5 @@
+import { SongData } from "./types";
+
 class RawFileExtractor {
   private static formatFolderData(importDataFunction: any): {
     [key: string]: string;
@@ -29,6 +31,24 @@ class RawFileExtractor {
     const songListRaw = require("../../../database/bundled/song_list");
 
     return songListRaw.split("\n");
+  }
+
+  public static async loadSongByUrl(songUrl: string): Promise<SongData> {
+    const response = await fetch(songUrl);
+    const textRaw = await response.text();
+
+    const [songText, dataRaw] = textRaw.split("###");
+
+    return {
+      text: songText.trim(),
+      info: dataRaw
+        .trim()
+        .split("\n")
+        .reduce((acc, value) => {
+          const [key, data] = value.split(":");
+          return { ...acc, [key]: data.trim() };
+        }, {} as any),
+    };
   }
 }
 

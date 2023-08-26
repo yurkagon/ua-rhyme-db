@@ -1,3 +1,9 @@
 .search-form {
   outline: none !important;
+
+  * {
+    &:focus {
+      box-shadow: none;
+    }
+  }
 }
