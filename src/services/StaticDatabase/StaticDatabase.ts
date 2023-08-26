@@ -1,10 +1,10 @@
 import _ from "lodash";
 
-import { formatWord } from "../../utils";
+import { formatWord, splitBySquareBrackets } from "../../utils";
 
 import RawFileExtractor from "./RawFileExtractor";
 
-import { Rhyme, RhymeBlock, Song } from "./types";
+import { Rhyme, RhymeBlock, Song, RhymeInfoType } from "./types";
 
 class StaticDatabase {
   private static rhymeData: RhymeBlock[];
@@ -33,27 +33,50 @@ class StaticDatabase {
   private static loadRhymeData() {
     const rawFileData = RawFileExtractor.loadRhymeFolder();
 
-    this.rhymeData = _.chain(rawFileData)
-      .map((value: string, key: string) => {
-        const rhymesRaw = value.split("\n");
+    this.rhymeData = _.map(rawFileData, (value: string, key: string) => {
+      const rhymesRaw = value.split("\n");
 
-        const rhymes = rhymesRaw
-          .filter(Boolean)
-          .map((rhyme: string) => this.formatRawRhyme(rhyme));
+      const rhymes = rhymesRaw
+        .filter(Boolean)
+        .map((rhyme: string) => this.formatRawRhyme(rhyme));
 
-        return { key, rhymes };
-      })
-      .value() as RhymeBlock[];
+      return { key, rhymes };
+    }) as RhymeBlock[];
   }
 
-  private static formatRawRhyme(rawRhyme: string): Rhyme {
+  private static formatRawRhyme(rawRhymeData: string): Rhyme {
+    const [rawRhyme, ...rhymeInfoRaw] = rawRhymeData.split("#");
     const [word, ...alternatives] = rawRhyme.split("/");
+
+    const extra = this.parseRhymeInfoRaw(rhymeInfoRaw);
 
     return {
       label: word.trim(),
       value: formatWord(word),
       alternatives: alternatives.map((el) => formatWord(el)),
+      extra,
     };
+  }
+
+  private static parseRhymeInfoRaw(rhymeInfoRaw: string[]) {
+    const data = {};
+
+    rhymeInfoRaw.forEach((rawInfoElement) => {
+      const [type, infoRaw] = rawInfoElement.split(":");
+
+      if (type === RhymeInfoType.r) {
+        const mentions = infoRaw.split(",").map((el) => {
+          const [songId, rangeRaw] = splitBySquareBrackets(el);
+          const [from, to] = rangeRaw.split("-");
+
+          return { songId, range: { from: Number(from), to: Number(to) } };
+        });
+
+        Object.assign(data, { mentions });
+      }
+    });
+
+    return data;
   }
 
   public static getRhymeData() {

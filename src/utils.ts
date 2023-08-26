@@ -9,3 +9,6 @@ export const formatWord = (word: string) => {
     .replace("'", "")
     .replace("-", " ");
 };
+
+export const splitBySquareBrackets = (inputString: string) =>
+  inputString.split(/\s*\[([^\]]*)\]\s*/).filter(Boolean);

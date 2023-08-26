@@ -18,9 +18,15 @@ class Application {
       return "rhymes";
     }) as { target: Rhyme[]; rhymes: Rhyme[] };
 
-    grouped.rhymes = _.uniqBy(grouped.rhymes, "value");
-
-    return grouped;
+    return {
+      target: grouped.target,
+      targetMentions: _.chain(grouped.target)
+        .map((rhyme) => rhyme.extra?.mentions)
+        .compact()
+        .flatten()
+        .value(),
+      rhymes: _.uniqBy(grouped.rhymes, "value"),
+    };
   }
 
   private static find(phrase: string, inputRhymes: Rhyme[] = []): Rhyme[] {
