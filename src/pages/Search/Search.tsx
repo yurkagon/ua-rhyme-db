@@ -18,17 +18,27 @@ export function Component() {
   );
 
   return (
-    <main className="search-page p-4">
-      <div className="form-wrapper">
-        <h5 className="">Рифмопошук</h5>
-        <SearchForm className="search-page-form" />
+    <main className="search-page container">
+      <div className="row">
+        <div className="col">
+          <div className="form-wrapper">
+            <h5 className="">Рифмопошук</h5>
+            <SearchForm className="search-page-form" />
+          </div>
+
+          <div className="rhymes">
+            {rhymes.map((rhyme, index) => (
+              <button className="rhyme-element btn btn-outline-primary" key={index}>{rhyme.label}</button>
+            ))}
+          </div>
+        </div>
+
+        <div className="col-5">
+          {targetMentions.map((mention, index) => (
+            <MentionCard key={index} data={mention} />
+          ))}
+        </div>
       </div>
-
-      {targetMentions.map((mention, index) => <MentionCard key={index} data={mention} />)}
-
-      {rhymes.map((rhyme) => (
-        <div className="rhyme-element" key={rhyme.value}>{rhyme.label}</div>
-      ))}
     </main>
   );
 }

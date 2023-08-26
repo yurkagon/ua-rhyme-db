@@ -1,6 +1,6 @@
 import _ from "lodash";
 
-import { formatWord, splitBySquareBrackets } from "../../utils";
+import { formatWord, splitBySquareBrackets, capitalize } from "../../utils";
 
 import RawFileExtractor from "./RawFileExtractor";
 
@@ -68,7 +68,7 @@ class StaticDatabase {
     const extra = this.parseRhymeInfoRaw(rhymeInfoRaw);
 
     return {
-      label: word.trim(),
+      label: capitalize(word.trim()),
       value: formatWord(word),
       alternatives: alternatives.map((el) => formatWord(el)),
       extra,

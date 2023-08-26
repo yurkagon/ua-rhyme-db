@@ -1,10 +1,10 @@
 .search-page {
-  display: flex;
-  flex-wrap: wrap;
+  padding-top: 30px;
+
 
   .form-wrapper {
-    margin-right: 3rem;
-    margin-bottom: 3rem;
+    max-width: 50%;
+    margin-bottom: 40px;
 
     .search-page-form {
       input {
@@ -40,7 +40,31 @@
 
   }
 
-  .rhyme-element {
 
+  .rhymes {
+    display: flex;
+    flex-wrap: wrap;
+
+    .rhyme-element {
+      $margin: 10px;
+      margin-right: $margin;
+      margin-bottom: $margin;
+
+      align-self: flex-end;
+
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+
+
+      &:focus {
+        box-shadow: none;
+      }
+
+      &:hover {
+        color: white;
+        background-color: rgba(#077bad, 0.8);
+      }
+    }
   }
+
 }

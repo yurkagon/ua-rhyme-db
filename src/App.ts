@@ -24,6 +24,7 @@ class Application {
         .map((rhyme) => rhyme.extra?.mentions)
         .compact()
         .flatten()
+        .uniqBy(el => `${el.songId}-${el.range.from}-${el.range.to}`)
         .value(),
       rhymes: _.uniqBy(grouped.rhymes, "value"),
     };

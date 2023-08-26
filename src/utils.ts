@@ -12,3 +12,6 @@ export const formatWord = (word: string) => {
 
 export const splitBySquareBrackets = (inputString: string) =>
   inputString.split(/\s*\[([^\]]*)\]\s*/).filter(Boolean);
+
+export const capitalize = (word: string) =>
+  word.charAt(0).toUpperCase() + word.slice(1);
