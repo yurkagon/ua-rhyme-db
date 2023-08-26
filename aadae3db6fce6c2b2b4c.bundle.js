@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkua_rhyme_db=self.webpackChunkua_rhyme_db||[]).push([[42],{42:(e,n,r)=>{r.r(n),r.d(n,{Component:()=>u});var h=r(5893);function u(){return(0,h.jsx)("main",{children:(0,h.jsx)("h1",{children:"NOT FOUND"})})}}}]);
