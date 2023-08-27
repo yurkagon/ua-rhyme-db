@@ -39,12 +39,19 @@
   }
 
   .mention-card {
-    min-width: 430px;
     color: var(--color-primary);
     border-color: var(--color-primary);
 
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+
     .card-text {
       font-size: 14px;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
   }
 

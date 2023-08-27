@@ -41,7 +41,7 @@ export function Component() {
 
       <div className="right">
         {targetMentions.map((mention, index) => (
-          <MentionCard key={index} data={mention} />
+          <MentionCard onClick={() => navigate(`/songs/${mention.songId}`)} key={index} data={mention} />
         ))}
       </div>
     </main>

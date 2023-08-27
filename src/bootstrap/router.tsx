@@ -27,6 +27,15 @@ const router = createBrowserRouter(
           element: <h1>rhymes</h1>,
         },
         {
+          path: "/songs",
+          lazy: () => import("../pages/Songs"),
+        },
+        {
+          path: "/songs/:id",
+          element:  <h1>rhymes</h1>,
+          lazy: () => import("../pages/Song")
+        },
+        {
           path: "*",
           lazy: () => import("../pages/NotFound")
         }

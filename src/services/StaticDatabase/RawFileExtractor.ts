@@ -45,8 +45,9 @@ class RawFileExtractor {
         .trim()
         .split("\n")
         .reduce((acc, value) => {
-          const [key, data] = value.split(":");
-          return { ...acc, [key]: data.trim() };
+          const [key, ...data] = value.split(":");
+
+          return { ...acc, [key]: data.join(":").trim() };
         }, {} as any),
     };
   }

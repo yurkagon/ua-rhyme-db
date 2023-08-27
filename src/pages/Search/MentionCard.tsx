@@ -7,7 +7,8 @@ import StaticDatabase, {
 
 const MentionCard: FC<{
   data: RhymeMention;
-}> = ({ data }) => {
+  onClick?: () => void;
+}> = ({ data, onClick }) => {
   const [song, setSong] = useState<Song>(() =>
     StaticDatabase.getSong(data.songId)
   );
@@ -33,7 +34,7 @@ const MentionCard: FC<{
   }, [isLoaded, data]);
 
   return (
-    <div className="mention-card card mb-3">
+    <div className="mention-card card mb-3" onClick={onClick}>
       <div className="card-header">
         {song.author} - {song.name}
       </div>
