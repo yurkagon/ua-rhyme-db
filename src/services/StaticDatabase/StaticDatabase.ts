@@ -15,7 +15,6 @@ class StaticDatabase {
     this.loadSongList();
   }
 
-
   public static getSong(songId: string) {
     const song = _.find(this.songList, { id: songId });
 
@@ -86,7 +85,13 @@ class StaticDatabase {
           const [songId, rangeRaw] = splitBySquareBrackets(el);
           const [from, to] = rangeRaw.split("-");
 
-          return { songId, range: { from: Number(from), to: Number(to) } };
+          return {
+            songId,
+            range: {
+              from: Number(from),
+              to: _.isUndefined(to) ? Number(from) : Number(to)
+            },
+          };
         });
 
         Object.assign(data, { mentions });
