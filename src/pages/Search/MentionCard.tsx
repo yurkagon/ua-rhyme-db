@@ -1,4 +1,5 @@
 import { FC, useEffect, useMemo, useState } from "react";
+import clsx from "clsx";
 
 import StaticDatabase, {
   RhymeMention,
@@ -41,7 +42,13 @@ const MentionCard: FC<{
       <div className="card-body">
         {isLoaded &&
           textData.map((line, index) => (
-            <p className="card-text" key={index}>
+            <p
+              className={clsx(
+                "card-text",
+                line.includes("[") && "text-primary-italic"
+              )}
+              key={index}
+            >
               {line}
             </p>
           ))}

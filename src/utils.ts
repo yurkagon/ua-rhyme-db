@@ -16,7 +16,7 @@ export const splitBySquareBrackets = (inputString: string) =>
   inputString.split(/\s*\[([^\]]*)\]\s*/).filter(Boolean);
 
 export const splitByWords = (inputString: string) =>
-  inputString.split(/(\s+|[.,;?!]+)/).filter(Boolean);
+  inputString.split(/(\s+|[.,;?!()]+)/).filter(Boolean);
 
 export const capitalize = (word: string) =>
   word.charAt(0).toUpperCase() + word.slice(1);
@@ -41,9 +41,5 @@ export const isSpecialCharacter = (char: string) =>
 
   export const isWordSearchable = (word: string) => {
     return word.length >= minWordLength &&
-      !isSpecialCharacter(word) &&
-      /*
-        Hotfix
-      */
-      !word.includes("(");
+      !isSpecialCharacter(word);
   };
