@@ -13,5 +13,26 @@ export const formatWord = (word: string) => {
 export const splitBySquareBrackets = (inputString: string) =>
   inputString.split(/\s*\[([^\]]*)\]\s*/).filter(Boolean);
 
+export const splitByWords = (inputString: string) =>
+  inputString.split(/(\s+|[.,;?!]+)/).filter(Boolean);
+
 export const capitalize = (word: string) =>
   word.charAt(0).toUpperCase() + word.slice(1);
+
+export const isSpecialCharacter = (char: string) =>
+  char === "..." ||
+  char === "—" ||
+  char === "." ||
+  char === "," ||
+  char === "!" ||
+  char === "?" ||
+  char === ":" ||
+  char === ";" ||
+  char === "(" ||
+  char === ")" ||
+  char === "«" ||
+  char === "»" ||
+  char === "–" ||
+  char === " " ||
+  char === "'" ||
+  char === '"';

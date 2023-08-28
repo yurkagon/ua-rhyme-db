@@ -1,15 +1,51 @@
 import { useMemo } from "react";
-import clsx from "clsx";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+
 import StaticDatabase, { Song } from "../../services/StaticDatabase";
+import { splitByWords, isSpecialCharacter } from "../../utils";
 
 import "./style.scss";
 
-
 export const Component = () => {
+  const navigate = useNavigate();
   const songData = useLoaderData() as Song;
 
-  const textData = useMemo(() => songData.data.text.split("\n"), [songData.data.text])
+  const textElement = useMemo(() => {
+    return songData.data.text.split("\n").map((line, index) => {
+      if (line === "") return <br key={index} />;
+
+      const isDescription = line.includes("[") || line.includes("]");
+      if (isDescription) {
+        return (
+          <p className="text-primary-italic" key={index}>
+            {line}
+          </p>
+        );
+      }
+
+      const words = splitByWords(line);
+
+      return (
+        <p key={index}>
+          {words.map((word, wordIndex) => {
+            if (isSpecialCharacter(word)) {
+              return <span key={wordIndex}>{word}</span>;
+            }
+
+            return (
+              <span
+                onClick={() => navigate(`/search/${encodeURIComponent(word)}`)}
+                key={wordIndex}
+                className="clickable"
+              >
+                {word}
+              </span>
+            );
+          })}
+        </p>
+      );
+    });
+  }, [songData.data.text]);
 
   return (
     <main className="song-page container p-3">
@@ -33,15 +69,7 @@ export const Component = () => {
       <hr />
       <h2 className="text-primary mb-3">Слова: </h2>
 
-      <section className="lyrics">
-        {textData.map((line, index) => {
-          if(line === "") return (<br key={index}/>);
-
-          const isDescription = line.includes("[") || line.includes("]");
-
-          return <p className={clsx(isDescription && "text-primary-italic")}key={index}>{line}</p>
-        })}
-      </section>
+      <section className="lyrics">{textElement}</section>
       <hr />
     </main>
   );
