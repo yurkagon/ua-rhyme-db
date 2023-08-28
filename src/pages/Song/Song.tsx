@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 
 import StaticDatabase, { Song } from "../../services/StaticDatabase";
-import { splitByWords, isSpecialCharacter } from "../../utils";
+import { splitByWords, isWordSearchable } from "../../utils";
 
 import "./style.scss";
 
@@ -28,7 +28,7 @@ export const Component = () => {
       return (
         <p key={index}>
           {words.map((word, wordIndex) => {
-            if (isSpecialCharacter(word)) {
+            if (!isWordSearchable(word)) {
               return <span key={wordIndex}>{word}</span>;
             }
 

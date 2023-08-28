@@ -1,3 +1,5 @@
+import { minWordLength } from "./constants";
+
 export const formatWord = (word: string) => {
   return word
     .trim()
@@ -36,3 +38,12 @@ export const isSpecialCharacter = (char: string) =>
   char === " " ||
   char === "'" ||
   char === '"';
+
+  export const isWordSearchable = (word: string) => {
+    return word.length >= minWordLength &&
+      !isSpecialCharacter(word) &&
+      /*
+        Hotfix
+      */
+      !word.includes("(");
+  };

@@ -6,3 +6,5 @@ export const isProduction = process.env.NODE_ENV === "production";
 export const basename = isProduction
   ? `/${packageJson.homepage.split("/").filter(Boolean).pop()}`
   : "/";
+
+export const minWordLength = 2;
