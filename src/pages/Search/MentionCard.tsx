@@ -34,6 +34,8 @@ const MentionCard: FC<{
     return text;
   }, [isLoaded, data]);
 
+  if(!isLoaded) return null;
+
   return (
     <div className="mention-card card mb-3" onClick={onClick}>
       <div className="card-header">
@@ -52,12 +54,6 @@ const MentionCard: FC<{
               {line}
             </p>
           ))}
-
-        {!isLoaded && (
-          <div className="spinner-grow text-primary" role="status">
-            <span className="sr-only">Loading...</span>
-          </div>
-        )}
       </div>
     </div>
   );
