@@ -9,3 +9,5 @@ const sortedFiles = files.sort();
 const fileList = sortedFiles.map((el) => el.trim()).join("\n");
 
 fs.writeFileSync(path.resolve(__dirname, destinationFolderPath), fileList);
+
+console.info("Song list generated.");
