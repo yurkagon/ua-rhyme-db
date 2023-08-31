@@ -19,8 +19,6 @@ export function Component() {
     [phrase]
   );
 
-  console.log(targetMentions);
-
   return (
     <main className="search-page flex-column flex-md-row">
       <div className="left">

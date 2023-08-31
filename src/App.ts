@@ -12,16 +12,21 @@ class Application {
     const correctedPhrase = formatWord(phrase);
     const rhymes = this.find(correctedPhrase);
 
-    const grouped = _.groupBy(rhymes, (value) => {
-      if (value.value === correctedPhrase) {
-        return "target";
-      }
-      if (value.alternatives.includes(correctedPhrase)) {
-        return "target";
-      }
+    const grouped = _.isEmpty(rhymes)
+      ? {
+          target: [],
+          rhymes: [],
+        }
+      : (_.groupBy(rhymes, (value) => {
+          if (value.value === correctedPhrase) {
+            return "target";
+          }
+          if (value.alternatives.includes(correctedPhrase)) {
+            return "target";
+          }
 
-      return "rhymes";
-    }) as { target: Rhyme[]; rhymes: Rhyme[] };
+          return "rhymes";
+        }) as { target: Rhyme[]; rhymes: Rhyme[] });
 
     return {
       target: grouped.target,
@@ -29,7 +34,7 @@ class Application {
         .map((rhyme) => rhyme.extra?.mentions)
         .compact()
         .flatten()
-        .uniqBy(el => `${el.songId}-${el.range.from}-${el.range.to}`)
+        .uniqBy((el) => `${el.songId}-${el.range.from}-${el.range.to}`)
         .value(),
       rhymes: _.uniqBy([...grouped.rhymes, ...foundByAlgorithm], "label"),
     };
