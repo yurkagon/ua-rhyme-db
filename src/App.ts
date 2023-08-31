@@ -3,11 +3,13 @@ import _ from "lodash";
 import { formatWord } from "./utils";
 
 import StaticDatabase, { Rhyme } from "./services/StaticDatabase";
+import Rhymer from "./lib/rhymer";
 
 class Application {
   public static findRhymes(phrase: string) {
-    const correctedPhrase = formatWord(phrase);
+    const foundByAlgorithm = Rhymer.findRhymes(phrase);
 
+    const correctedPhrase = formatWord(phrase);
     const rhymes = this.find(correctedPhrase);
 
     const grouped = _.groupBy(rhymes, (value) => {
@@ -29,7 +31,7 @@ class Application {
         .flatten()
         .uniqBy(el => `${el.songId}-${el.range.from}-${el.range.to}`)
         .value(),
-      rhymes: _.uniqBy(grouped.rhymes, "value"),
+      rhymes: _.uniqBy([...grouped.rhymes, ...foundByAlgorithm], "label"),
     };
   }
 

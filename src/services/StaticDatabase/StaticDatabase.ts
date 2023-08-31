@@ -8,11 +8,13 @@ import { Rhyme, RhymeBlock, Song, RhymeInfoType } from "./types";
 
 class StaticDatabase {
   private static rhymeData: RhymeBlock[];
+  private static rhymeWords: Rhyme[];
   private static songList: Song[];
 
   public static load() {
     this.loadRhymeData();
     this.loadSongList();
+    this.loadAllRhymeWords();
   }
 
   public static getSong(songId: string) {
@@ -89,7 +91,7 @@ class StaticDatabase {
             songId,
             range: {
               from: Number(from),
-              to: _.isUndefined(to) ? Number(from) : Number(to)
+              to: _.isUndefined(to) ? Number(from) : Number(to),
             },
           };
         });
@@ -101,11 +103,43 @@ class StaticDatabase {
     return data;
   }
 
+  public static loadAllRhymeWords() {
+    this.rhymeWords = _.chain(this.rhymeData)
+      .map((rhymeBlock) => {
+        const wordArray = rhymeBlock.rhymes.map((rhyme) => {
+          const alternatives = rhyme.alternatives.map((alternative) => ({
+            ...rhyme,
+            label: alternative,
+            value: undefined,
+            extra: undefined,
+          }));
+
+          return [
+            {
+              ...rhyme,
+              extra: undefined,
+              value: undefined,
+            },
+            ...alternatives,
+          ];
+        });
+
+        return _.flatten(wordArray);
+      })
+      .flatten()
+      .uniqBy("label")
+      .value();
+  }
+
   public static getRhymeData() {
     return this.rhymeData;
   }
   public static getSongList() {
     return this.songList;
+  }
+
+  public static getRhymeWords() {
+    return this.rhymeWords;
   }
 }
 

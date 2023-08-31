@@ -10,6 +10,7 @@ export interface Rhyme {
   extra?: {
     mentions?: RhymeMention[];
   };
+  algorithmic?: boolean;
 }
 
 export interface RhymeMention {

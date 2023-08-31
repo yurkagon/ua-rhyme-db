@@ -77,6 +77,17 @@
         color: white;
         background-color: rgba(#077bad, 0.8);
       }
+
+
+      &.secondary {
+        color: orangered;
+        border-color: orangered;
+
+        &:hover {
+          color: white;
+          background-color: rgba(orangered, 0.8);
+        }
+      }
     }
   }
 }

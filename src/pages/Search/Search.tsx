@@ -8,6 +8,7 @@ import Application from "../../App";
 import MentionCard from "./MentionCard";
 
 import "./style.scss";
+import clsx from "clsx";
 
 export function Component() {
   const { phrase } = useParams();
@@ -17,6 +18,8 @@ export function Component() {
     () => Application.findRhymes(phrase),
     [phrase]
   );
+
+  console.log(targetMentions);
 
   return (
     <main className="search-page flex-column flex-md-row">
@@ -29,8 +32,8 @@ export function Component() {
         <div className="rhymes">
           {rhymes.map((rhyme, index) => (
             <button
-              onClick={() => navigate(`/search/${rhyme.value}`)}
-              className="rhyme-element btn btn-outline-primary"
+              onClick={() => navigate(`/search/${encodeURIComponent(rhyme.label)}`)}
+              className={clsx("rhyme-element btn btn-outline-primary", rhyme.algorithmic ? "secondary" : "")}
               key={index}
             >
               {rhyme.label}
