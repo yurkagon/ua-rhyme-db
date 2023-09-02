@@ -18,7 +18,7 @@ export const Component = () => {
       if (isDescription) {
         return (
           <p className="text-primary-italic" key={index}>
-            {line}
+            {line.replace("[", "").replace("]", "")}
           </p>
         );
       }

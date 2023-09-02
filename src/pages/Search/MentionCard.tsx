@@ -11,7 +11,7 @@ const MentionCard: FC<{
   onClick?: () => void;
 }> = ({ data, onClick }) => {
   const [song, setSong] = useState<Song>(() =>
-    StaticDatabase.getSong(data.songId)
+    StaticDatabase.getSong(data.songId),
   );
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const MentionCard: FC<{
     return text;
   }, [isLoaded, data]);
 
-  if(!isLoaded) return null;
+  if (!isLoaded) return null;
 
   return (
     <div className="mention-card card mb-3" onClick={onClick}>
@@ -47,11 +47,13 @@ const MentionCard: FC<{
             <p
               className={clsx(
                 "card-text",
-                line.includes("[") && "text-primary-italic"
+                line.includes("[") && "text-primary-italic",
               )}
               key={index}
             >
-              {line}
+              {line.includes("[")
+                ? line.replace("[", "").replace("]", "")
+                : line}
             </p>
           ))}
       </div>

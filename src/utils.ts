@@ -9,6 +9,8 @@ export const formatWord = (word: string) => {
     .replace('"', "")
     .replace("`", "")
     .replace("'", "")
+    .replace("»", "")
+    .replace("«", "")
     .replace("-", " ");
 };
 
