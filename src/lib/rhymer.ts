@@ -34,7 +34,7 @@ class Rhymer {
       return [];
     }
 
-    var inputString = string.replace(
+    var inputString = string.replace(" ", '').replace(
       /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi,
       ""
     );
