@@ -2,9 +2,13 @@ import main_page_logo from "../../assets/main_page_logo.png";
 
 import SearchForm from "../../components/SearchForm";
 
+import StaticDatabase from "../../services/StaticDatabase";
+
 import "./style.scss";
 
 export const Component = () => {
+  const stats = StaticDatabase.getStats();
+
   return (
     <main>
       <section className="masthead">
@@ -32,14 +36,45 @@ export const Component = () => {
         </div>
       </section>
 
-      <section className="about">
+      <section className="about mb-5">
         <div className="text-center description">
           <h2 id="subtitle">Ласкаво просимо до UA RhymeDB</h2>
+
           <p>
             Відкрийте для себе красу українських рим через пісні та реп.
             Досліджуйте колекцію рим, які використовуються у різних музичних
             жанрах.
           </p>
+        </div>
+      </section>
+
+      <section className="counter-stats mb-4">
+        <div className="container">
+          <div className="row justify-content-center align-items-center flex-md-row flex-column">
+            <div className="col-2 stats">
+            <i className="fa fa-solid fa-users" />
+              <div className="counting">
+                {stats.authors}
+              </div>
+              <h5>Виконавців</h5>
+            </div>
+
+            <div className="col-2 stats">
+            <i className="fa fa-solid fa-music" />
+              <div className="counting">
+                {stats.songs}
+              </div>
+              <h5>Пісень</h5>
+            </div>
+
+            <div className="col-2 stats">
+            <i className="fa fa-solid fa-book" />
+              <div className="counting">
+                {stats.rhymes}
+              </div>
+              <h5>Рим</h5>
+            </div>
+          </div>
         </div>
       </section>
     </main>

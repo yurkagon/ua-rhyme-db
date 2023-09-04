@@ -80,3 +80,20 @@
     margin: 1rem 0;
   }
 }
+
+.counter-stats {
+  .stats {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+
+    .fa {
+      color: var(--color-primary);
+      font-size: 60px;
+    }
+  }
+}
+
+
+

@@ -141,6 +141,14 @@ class StaticDatabase {
   public static getRhymeWords() {
     return this.rhymeWords;
   }
+
+  public static getStats() {
+    return {
+      songs: this.songList.length,
+      rhymes: this.rhymeWords.length,
+      authors: _.chain(this.songList).map("author").uniq().value().length,
+    };
+  }
 }
 
 StaticDatabase.load();

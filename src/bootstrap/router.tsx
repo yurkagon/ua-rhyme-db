@@ -18,14 +18,14 @@ const router = createBrowserRouter(
           path: "/search/:phrase",
           lazy: () => import("../pages/Search")
         },
-        {
-          path: "/artists",
-          element: <h1>artists</h1>,
-        },
-        {
-          path: "/rhymes",
-          element: <h1>rhymes</h1>,
-        },
+        // {
+        //   path: "/artists",
+        //   element: <h1>artists</h1>,
+        // },
+        // {
+        //   path: "/rhymes",
+        //   element: <h1>rhymes</h1>,
+        // },
         {
           path: "/songs",
           lazy: () => import("../pages/Songs"),
