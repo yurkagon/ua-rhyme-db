@@ -17,14 +17,8 @@ const Header = () => (
     </Link>
 
     <nav className="navigation my-2 my-md-0 mr-md-3">
-      <Link to="/artists" className="nav-button p-2">
-        Виконавці
-      </Link>
       <Link to="/songs" className="nav-button p-2" >
         Пісні
-      </Link>
-      <Link to="/rhymes" className="nav-button p-2">
-        Рими
       </Link>
     </nav>
   </header>

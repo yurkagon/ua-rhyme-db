@@ -149,6 +149,23 @@ class StaticDatabase {
       authors: _.chain(this.songList).map("author").uniq().value().length,
     };
   }
+
+  public static generateAuthorDataBasedOnSongs() {
+    const groups = _.groupBy(this.songList, "authorId");
+
+    return _.map(groups, (songs, authorId) => {
+      const author = _.find(this.songList, { authorId });
+
+      return {
+        id: authorId,
+        name: author.author,
+        songs: songs.map((song) => ({
+          id: song.id,
+          name: song.name,
+        })),
+      };
+    }).sort((a, b) => a.name.localeCompare(b.name));
+  }
 }
 
 StaticDatabase.load();

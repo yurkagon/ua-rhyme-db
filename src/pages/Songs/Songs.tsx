@@ -1,45 +1,44 @@
+import { useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 
-const songs = [
-  {
-    id: 1,
-    artist: "Artist 1",
-    songTitle: "Song Title 1",
-    shortDescription: "Short description of song 1."
-  },
-  {
-    id: 2,
-    artist: "Artist 2",
-    songTitle: "Song Title 2",
-    shortDescription: "Short description of song 2."
-  },
-  {
-    id: 3,
-    artist: "Artist 3",
-    songTitle: "Song Title 3",
-    shortDescription: "Short description of song 3."
-  },
-];
+import StaticDatabase from "../../services/StaticDatabase";
+
+import "./style.scss";
 
 export const Component = () => {
+  const navigate = useNavigate();
+
+  const songData = useMemo(
+    () => StaticDatabase.generateAuthorDataBasedOnSongs(),
+    [],
+  );
+
   return (
-    <div className="container">
-      <h1>Song List</h1>
-      <div className="row">
-        {songs.map(song => (
-          <div key={song.id} className="col-md-4 mb-4">
-            <div className="card">
+    <main className="songs container mt-3">
+      <h1 className="text-center mb-3">Пісні</h1>
+
+      <section className="row">
+        {songData.map((artist) => (
+          <div className="artist-song-list col-md-4" key={artist.id}>
+            <div className="mb-3">
               <div className="card-body">
-                <h5 className="card-title">{song.songTitle}</h5>
-                <h6 className="card-subtitle mb-2 text-muted">{song.artist}</h6>
-                <p className="card-text">{song.shortDescription}</p>
+                <h5 className="card-title text-primary-italic">{artist.name}</h5>
+                <ul className="song-list list-group list-group-flush">
+                  {artist.songs.map((song) => (
+                    <li
+                      className="list-group-item"
+                      onClick={() => navigate(`/songs/${song.id}`)}
+                      key={song.id}
+                    >
+                      {song.name}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
-
-
           </div>
         ))}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
-
