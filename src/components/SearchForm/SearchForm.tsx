@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 import "./style.scss";
 
-const SearchForm: FC<Props> = ({ className }) => {
+const SearchForm: FC<Props> = ({ className, placeholder }) => {
   const { phrase } = useParams();
   const { register, handleSubmit } = useForm<FormValues>();
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ const SearchForm: FC<Props> = ({ className }) => {
             minLength: 2,
           })}
           className="form-control"
-          placeholder="Ножиці"
+          placeholder={placeholder}
         />
 
         <button type="submit" className="search-button btn btn-outline-warning">
@@ -42,6 +42,7 @@ const SearchForm: FC<Props> = ({ className }) => {
 
 interface Props {
   className?: string;
+  placeholder?: string;
 }
 
 type FormValues = {

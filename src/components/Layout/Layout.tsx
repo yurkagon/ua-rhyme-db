@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import Header from "../Header";
 import Footer from "../Footer";
 
-const RootPage = () => (
+const Layout = () => (
   <>
     <Header />
 
@@ -15,4 +15,4 @@ const RootPage = () => (
   </>
 );
 
-export default RootPage;
+export default Layout;

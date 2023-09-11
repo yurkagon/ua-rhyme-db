@@ -6,4 +6,22 @@
       box-shadow: none;
     }
   }
+
+  input {
+    border-color: var(--color-primary);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .search-button {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+
+    &:hover {
+      color: white;
+      background-color: rgba(#077bad, 0.8);
+    }
+  }
 }

@@ -1,13 +1,16 @@
-import main_page_logo from "../../assets/main_page_logo.png";
-
-import SearchForm from "../../components/SearchForm";
+import _ from "lodash";
 
 import StaticDatabase from "../../services/StaticDatabase";
 
+import SearchForm from "../../components/SearchForm";
+
+import main_page_logo from "../../assets/main_page_logo.png";
 import "./style.scss";
 
 export const Component = () => {
   const stats = StaticDatabase.getStats();
+
+  const { label: sampleWord } = _.sample(StaticDatabase.getRhymeWords());
 
   return (
     <main>
@@ -29,7 +32,7 @@ export const Component = () => {
                   База даних римування українських виконавців
                 </h1>
 
-                <SearchForm />
+                <SearchForm placeholder={sampleWord} />
               </div>
             </div>
           </div>
@@ -52,26 +55,20 @@ export const Component = () => {
         <div className="container">
           <div className="row justify-content-center align-items-center flex-md-row flex-column">
             <div className="col-2 stats">
-            <i className="fa fa-solid fa-users" />
-              <div className="counting">
-                {stats.authors}
-              </div>
+              <i className="fa fa-solid fa-users" />
+              <div className="counting">{stats.authors}</div>
               <h5>Виконавців</h5>
             </div>
 
             <div className="col-2 stats">
-            <i className="fa fa-solid fa-music" />
-              <div className="counting">
-                {stats.songs}
-              </div>
+              <i className="fa fa-solid fa-music" />
+              <div className="counting">{stats.songs}</div>
               <h5>Пісень</h5>
             </div>
 
             <div className="col-2 stats">
-            <i className="fa fa-solid fa-book" />
-              <div className="counting">
-                {stats.rhymes}
-              </div>
+              <i className="fa fa-solid fa-book" />
+              <div className="counting">{stats.rhymes}</div>
               <h5>Рим</h5>
             </div>
           </div>
