@@ -12,11 +12,13 @@ const router = createBrowserRouter(
       children: [
         {
           path: "/",
-          lazy: () => import("../pages/Root")
+          lazy: () => import("../pages/Root"),
+          id: "root",
         },
         {
           path: "/search/:phrase",
-          lazy: () => import("../pages/Search")
+          lazy: () => import("../pages/Search"),
+          id: "search",
         },
         {
           path: "/songs",

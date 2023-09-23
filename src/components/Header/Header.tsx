@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, useMatches } from "react-router-dom";
+import _ from "lodash";
 
 import SearchForm from "../SearchForm";
 
@@ -8,6 +9,11 @@ import header_logo from "../../assets/header_logo.png?width=100&height=100";
 import "./style.scss";
 
 const Header = () => {
+  const matches = useMatches();
+  const lastRoute = _.last(matches);
+
+  const isSearchEnabled = !["root", "search"].includes(lastRoute.id);
+
   return (
     <header className="header d-flex flex-start flex-md-row flex-column align-items-center p-3 px-md-4 border-bottom shadow-md">
       <Link to="/" className="logo d-flex align-items-center">
@@ -20,9 +26,12 @@ const Header = () => {
           Пісні
         </Link>
       </nav>
-      <nav className="navigation my-2 my-md-0 mr-md-3 ml-auto">
-        <SearchForm className="header-form" placeholder="" />
-      </nav>
+
+      {isSearchEnabled && (
+        <nav className="navigation my-2 my-md-0 mr-md-3 ml-auto">
+          <SearchForm className="header-form" placeholder="" />
+        </nav>
+      )}
     </header>
   );
 };
