@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" font-family="Inter, system-ui, sans-serif">
+  <!-- Background -->
+  <rect width="1200" height="700" fill="#111827"/>
+
+  <!-- Header -->
+  <rect width="1200" height="56" fill="#1f2937"/>
+  <rect x="24" y="16" width="36" height="24" rx="4" fill="#077bad"/>
+  <text x="70" y="33" fill="#f3f3f3" font-size="16" font-weight="700">UA RhymeDB</text>
+  <text x="900" y="33" fill="#9ca3af" font-size="14">Головна</text>
+  <text x="980" y="33" fill="#9ca3af" font-size="14">Пісні</text>
+
+  <!-- Hero background -->
+  <rect y="56" width="1200" height="430" fill="#1f2937"/>
+
+  <!-- Left column - illustration placeholder -->
+  <rect x="80" y="110" width="380" height="340" rx="16" fill="#374151"/>
+  <rect x="185" y="170" width="170" height="170" rx="85" fill="#ffe801" opacity="0.15"/>
+  <ellipse cx="270" cy="290" rx="80" ry="90" fill="#374151" stroke="#4b5563" stroke-width="2"/>
+  <!-- Stylized figure -->
+  <circle cx="270" cy="210" r="40" fill="#4b5563"/>
+  <rect x="235" y="245" width="70" height="100" rx="12" fill="#4b5563"/>
+  <!-- Cap -->
+  <path d="M240 200 Q270 180 300 200 L295 215 Q270 205 245 215Z" fill="#077bad"/>
+  <rect x="225" y="210" width="90" height="8" rx="4" fill="#ffe801"/>
+  <!-- Mic -->
+  <rect x="300" y="270" width="8" height="40" rx="4" fill="#6b7280"/>
+  <circle cx="304" cy="268" r="12" fill="#374151" stroke="#6b7280" stroke-width="2"/>
+
+  <!-- Right column - hero content -->
+  <text x="540" y="155" fill="#f3f3f3" font-size="28" font-weight="700">База даних</text>
+  <text x="540" y="190" fill="#f3f3f3" font-size="28" font-weight="700">римування</text>
+  <text x="540" y="225" fill="#077bad" font-size="28" font-weight="700">українських виконавців</text>
+
+  <!-- Search input -->
+  <rect x="540" y="260" width="500" height="52" rx="10" fill="#374151" stroke="#4b5563" stroke-width="1"/>
+  <text x="560" y="291" fill="#6b7280" font-size="15">Наприклад: баран...</text>
+  <rect x="980" y="268" width="48" height="36" rx="8" fill="#077bad"/>
+  <text x="995" y="292" fill="white" font-size="18">→</text>
+
+  <!-- Wave divider -->
+  <path d="M0 490 Q300 450 600 470 Q900 490 1200 455 L1200 510 L0 510Z" fill="#111827"/>
+
+  <!-- Stats section -->
+  <rect y="500" width="1200" height="140" fill="#111827"/>
+
+  <rect x="200" y="530" width="200" height="80" rx="12" fill="#1f2937"/>
+  <text x="300" y="568" fill="#ffe801" font-size="32" font-weight="700" text-anchor="middle">15</text>
+  <text x="300" y="595" fill="#9ca3af" font-size="13" text-anchor="middle">пісень</text>
+
+  <rect x="500" y="530" width="200" height="80" rx="12" fill="#1f2937"/>
+  <text x="600" y="568" fill="#ffe801" font-size="32" font-weight="700" text-anchor="middle">321</text>
+  <text x="600" y="595" fill="#9ca3af" font-size="13" text-anchor="middle">груп рим</text>
+
+  <rect x="800" y="530" width="200" height="80" rx="12" fill="#1f2937"/>
+  <text x="900" y="568" fill="#ffe801" font-size="32" font-weight="700" text-anchor="middle">3</text>
+  <text x="900" y="595" fill="#9ca3af" font-size="13" text-anchor="middle">виконавці</text>
+
+  <!-- Footer hint -->
+  <text x="600" y="672" fill="#4b5563" font-size="12" text-anchor="middle">© UA RhymeDB</text>
+</svg>

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" font-family="Inter, system-ui, sans-serif">
+  <!-- Background -->
+  <rect width="1200" height="700" fill="#111827"/>
+
+  <!-- Header -->
+  <rect width="1200" height="56" fill="#1f2937"/>
+  <rect x="24" y="16" width="36" height="24" rx="4" fill="#077bad"/>
+  <text x="70" y="33" fill="#f3f3f3" font-size="16" font-weight="700">UA RhymeDB</text>
+  <text x="900" y="33" fill="#9ca3af" font-size="14">Головна</text>
+  <text x="980" y="33" fill="#077bad" font-size="14" font-weight="600">Пісні</text>
+
+  <!-- Main content -->
+  <rect x="0" y="56" width="1200" height="644" fill="#111827"/>
+
+  <!-- Song meta - left column -->
+  <text x="40" y="112" fill="#077bad" font-size="26" font-weight="700">Твоя черга</text>
+  <text x="40" y="140" fill="#6b7280" font-size="15" font-style="italic">Глава 94</text>
+
+  <!-- YouTube embed - right column -->
+  <rect x="620" y="76" width="540" height="190" rx="10" fill="#1f2937"/>
+  <rect x="620" y="76" width="540" height="190" rx="10" fill="none" stroke="#374151" stroke-width="1"/>
+  <!-- Play button -->
+  <circle cx="890" cy="171" r="36" fill="#ff0000" opacity="0.85"/>
+  <polygon points="880,155 880,187 912,171" fill="white"/>
+  <text x="890" y="285" fill="#6b7280" font-size="12" text-anchor="middle">youtube.com/watch?v=z0dDvIekOrU</text>
+
+  <line x1="40" y1="165" x2="1160" y2="165" stroke="#374151" stroke-width="1"/>
+
+  <!-- Lyrics label -->
+  <text x="40" y="198" fill="#077bad" font-size="18" font-weight="600">Слова:</text>
+
+  <!-- Lyrics -->
+  <text x="40" y="235" fill="#077bad" font-size="13" font-style="italic">[Куплет 1: Кашляючий Ед]</text>
+
+  <!-- Lyrics lines - clickable words shown highlighted on hover -->
+  <text x="40" y="262" fill="#f3f3f3" font-size="14">
+    <tspan class="word">Я</tspan>
+    <tspan> </tspan>
+    <tspan fill="#e2e8f0" text-decoration="underline" cursor="pointer">пропадаю</tspan>
+    <tspan> </tspan>
+    <tspan>з</tspan>
+    <tspan> </tspan>
+    <tspan fill="#e2e8f0">палати</tspan>
+    <tspan> у стилі </tspan>
+    <tspan fill="#e2e8f0">Гаррі</tspan>
+    <tspan> </tspan>
+    <tspan fill="#e2e8f0">Гудіні</tspan>
+  </text>
+
+  <!-- Hover highlight example -->
+  <rect x="167" y="247" width="80" height="22" rx="4" fill="#077bad" opacity="0.2"/>
+  <text x="207" y="262" fill="#077bad" font-size="14" text-anchor="middle" font-weight="500">пропадаю</text>
+  <!-- Tooltip -->
+  <rect x="150" y="220" width="110" height="24" rx="5" fill="#077bad"/>
+  <text x="205" y="236" fill="white" font-size="11" text-anchor="middle">знайти рими →</text>
+  <polygon points="200,244 210,244 205,252" fill="#077bad"/>
+
+  <text x="40" y="292" fill="#f3f3f3" font-size="14">Камеді клаб — моя країна, харламов гарік у ділі</text>
+  <text x="40" y="318" fill="#f3f3f3" font-size="14">Люди дають не в дупу, люди дають в мозги</text>
+  <text x="40" y="344" fill="#f3f3f3" font-size="14">Закінчили палітєхи — продають носки</text>
+  <text x="40" y="374" fill="#f3f3f3" font-size="14">Хто з ким мені вистачило доби</text>
+  <text x="40" y="400" fill="#f3f3f3" font-size="14">Зрозуміти, хто зі мною з вигоди чоло добив</text>
+
+  <text x="40" y="432" fill="#f3f3f3" font-size="14" opacity="0.5">За цю музику мене чекатимуть суди Лінча</text>
+  <text x="40" y="458" fill="#f3f3f3" font-size="14" opacity="0.5">Дитяча дискотека, але всюди кінча</text>
+
+  <!-- Fade overlay hint -->
+  <defs>
+    <linearGradient id="fadeDown" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#111827" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="460" width="1200" height="180" fill="url(#fadeDown)"/>
+
+  <!-- Cursor indicator -->
+  <circle cx="207" cy="262" r="5" fill="#077bad" opacity="0.6"/>
+
+  <!-- Footer -->
+  <text x="600" y="688" fill="#4b5563" font-size="12" text-anchor="middle">Натисніть на будь-яке слово, щоб знайти рими</text>
+</svg>
