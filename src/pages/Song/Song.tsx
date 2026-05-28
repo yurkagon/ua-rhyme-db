@@ -4,8 +4,6 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import StaticDatabase, { Song } from "../../services/StaticDatabase";
 import { splitByWords, isWordSearchable } from "../../utils";
 
-import "./style.scss";
-
 export const Component = () => {
   const navigate = useNavigate();
   const songData = useLoaderData() as Song;
@@ -17,7 +15,7 @@ export const Component = () => {
       const isDescription = line.includes("[") || line.includes("]");
       if (isDescription) {
         return (
-          <p className="text-primary-italic" key={index}>
+          <p className="text-primary italic opacity-80" key={index}>
             {line.replace("[", "").replace("]", "")}
           </p>
         );
@@ -36,7 +34,7 @@ export const Component = () => {
               <span
                 onClick={() => navigate(`/search/${encodeURIComponent(word)}`)}
                 key={wordIndex}
-                className="clickable"
+                className="cursor-pointer rounded-sm transition-colors duration-100 hover:bg-primary hover:text-brand-white"
               >
                 {word}
               </span>
@@ -48,16 +46,20 @@ export const Component = () => {
   }, [songData.data.text]);
 
   return (
-    <main className="song-page container p-3">
-      <section className="row">
-        <div className="col-md-6">
-          <h1 className="text-primary">{songData.data.info.name}</h1>
-          <p className="text-primary-italic">{songData.data.info.author}</p>
+    <main className="mx-auto max-w-screen-xl p-3">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <h1 className="text-primary text-3xl leading-snug">
+            {songData.data.info.name}
+          </h1>
+          <p className="text-primary italic opacity-80">
+            {songData.data.info.author}
+          </p>
         </div>
         {songData.data.info.youtube && (
-          <div className="col-md-6">
+          <div>
             <iframe
-              className="youtube-embed"
+              className="w-full h-full min-h-[300px]"
               src={songData.data.info.youtube.replace("watch?v=", "embed/")}
               allowFullScreen
               title="YouTube video player"
@@ -66,11 +68,11 @@ export const Component = () => {
           </div>
         )}
       </section>
-      <hr />
-      <h2 className="text-primary mb-3">Слова: </h2>
+      <hr className="my-4" />
+      <h2 className="text-primary text-2xl mb-3">Слова: </h2>
 
-      <section className="lyrics">{textElement}</section>
-      <hr />
+      <section className="mx-auto">{textElement}</section>
+      <hr className="my-4" />
     </main>
   );
 };

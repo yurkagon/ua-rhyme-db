@@ -3,8 +3,6 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import clsx from "clsx";
 
-import "./style.scss";
-
 const SearchForm: FC<Props> = ({ className, placeholder }) => {
   const { phrase } = useParams();
   const { register, handleSubmit } = useForm<FormValues>();
@@ -19,23 +17,24 @@ const SearchForm: FC<Props> = ({ className, placeholder }) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className={clsx("search-form form text-center", className)}
+      className={clsx("flex w-full text-center", className)}
     >
-      <div className="input-group">
-        <input
-          {...register("search", {
-            required: true,
-            value: phrase,
-            minLength: 2,
-          })}
-          className="form-control"
-          placeholder={placeholder}
-        />
+      <input
+        {...register("search", {
+          required: true,
+          value: phrase,
+          minLength: 2,
+        })}
+        placeholder={placeholder}
+        className="flex-1 min-w-0 border border-primary px-3 py-2 rounded-l focus:outline-none focus:shadow-none"
+      />
 
-        <button type="submit" className="search-button btn btn-outline-warning">
-          Знайти
-        </button>
-      </div>
+      <button
+        type="submit"
+        className="px-4 py-2 border border-l-0 border-primary text-primary rounded-r transition hover:bg-primary/80 hover:text-white focus:outline-none"
+      >
+        Знайти
+      </button>
     </form>
   );
 };

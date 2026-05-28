@@ -37,17 +37,20 @@ const MentionCard: FC<{
   if (!isLoaded) return null;
 
   return (
-    <div className="mention-card card mb-3" onClick={onClick}>
-      <div className="card-header">
+    <div
+      className="border border-primary rounded text-primary bg-white cursor-pointer transition duration-200 hover:-translate-y-1 hover:shadow-md"
+      onClick={onClick}
+    >
+      <div className="px-4 py-3 border-b border-primary/30 font-medium">
         {song.author} - {song.name}
       </div>
-      <div className="card-body">
+      <div className="px-4 py-3">
         {isLoaded &&
           textData.map((line, index) => (
             <p
               className={clsx(
-                "card-text",
-                line.includes("[") && "text-primary-italic",
+                "text-sm",
+                line.includes("[") && "italic opacity-80",
               )}
               key={index}
             >
